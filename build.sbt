@@ -33,6 +33,10 @@ libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.2" % "test"
 libraryDependencies +=
   "net.liftweb" % "lift-json_2.11" % "3.0-M8"
 
+// 並行処理のためのライブラリ
+libraryDependencies +=
+  "com.typesafe.akka" % "akka-actor_2.11" % "2.4.10"
+
 // テスト実行や通常の実行にsbtとは別のプロセスを用いる
 
 fork in (Test, run) := true
