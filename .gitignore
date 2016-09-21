@@ -17,6 +17,9 @@ project/target
 slides/*.key
 slides/15
 
+src/lx*x
+test/lx*x
+
 # Scala-IDE specific
 .scala_dependencies
 .worksheet

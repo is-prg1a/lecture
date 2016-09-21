@@ -8,10 +8,7 @@ version      := "1.0"     // プロジェクトのバージョン番号
 scalaVersion := "2.11.8"  // コンパイルに使う scalac のバージョン
 
 scalacOptions ++=         // scalac に与えるオプション
-  Seq("-optimize",
-    "-feature",
-    "-unchecked",
-    "-deprecation")
+  Seq("-optimize", "-feature", "-unchecked", "-deprecation")
 
 javaOptions in run ++=    // 仮想機械に与えるオプション
   Seq( "-Xmx2G", "-verbose:gc")                          
