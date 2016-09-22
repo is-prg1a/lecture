@@ -7,12 +7,12 @@
 
 object Register {
   val 登録情報 = Map(
-    "family" -> "脇田",
-    "name"   -> "建",
-    "id"     -> "16_01234",
-    "github" -> "wakita",
-    "login"  -> "wakita6",
-    "email"  -> "wakita.k.aa")
+    "family" -> "あなたの姓に書き換えて下さい                                              （例：「脇田」）",
+    "name"   -> "あなたの名に書き換えて下さい                                              （例：「建」）",
+    "id"     -> "あなたの学籍番号に書き換えて下さい                                        （例：[16_01234]）",
+    "github" -> "あなたのGitHubアカウント名に書き換えて下さい                              （例：[wakita]）",
+    "login"  -> "あなたのログインID (Macにログインするときに入力する名前)に書き換えて下さい（例：[wakita6]）",
+    "email"  -> "あなたの東工大メールのアドレスの@から左の部分に書き換えて下さい           （例：[wakita.k.aa]）")
 
   def main(arguments: Array[String]) {
     val 件名 = 登録情報("id")
