@@ -132,6 +132,9 @@ The key's randomart image is:
 するために通信の相手に教える必要があります。公開鍵は第三者に知られても安全です。
 この授業でこれ以上公開鍵暗号の説明はしませんが、「秘密鍵は信用できない者に知られてはいけない」、「公開鍵は誰に知られたとしても安全」
 ということは知っておいてください。
+\texttt{ssh-keygen}を実行したときのメッセージにあるように、SSHの秘密鍵、公開鍵はホームディレクトリの\texttt{.ssh}の下に作られます。
+\texttt{ls}ではドット(\texttt{.})から始まるファイル名のファイルは表示されないことに注意してください。
+\texttt{ls -A}とすればドットから始まるファイル名のファイルも表示されます。
 
 次に公開鍵を GitHub に登録します。
 GitHub にログインして右上にあるアイコンから Settings を選びます。
@@ -162,7 +165,7 @@ SSH を使えば西7号館の演習室に外からログインすることも可
 設定は演習室で \texttt{\~{}/.ssh/authorized\_keys} というファイルを作成して自宅で使用するSSH鍵の公開鍵を書き込むだけです(\texttt{\~{}/}はホームディレクトリという意味)。
 これで自宅など他の場所から
 \begin{verbatim}
-ssh #アカウント名#@porto.is.titech.ac.jp
+ssh アカウント名@porto.is.titech.ac.jp
 \end{verbatim}
 で演習室のマシンにログインできるようになります(Windows の場合は何か SSH クライアントをインストールして使う必要があります)。
 この場合に使用する秘密鍵は絶対に他人に知られないようにしてください。
@@ -172,7 +175,7 @@ ssh #アカウント名#@porto.is.titech.ac.jp
 \section{履修者の情報の登録}
 \begin{enumerate}
 \item GitHub アカウントを作ったら \url{https://github.com/is-prg1a/lecture} にアクセスしてください。
-\item そうしてから \texttt{src/lx00/register.scala} をエディタにコピペして、内容を適切に書き換えて保存してください。
+\item \texttt{src/lx00/register.scala} をエディタにコピペして、内容を適切に書き換えて保存してください。
 \item Scalaのプログラムファイルを \texttt{scala register.scala} で実行して、表示された内容に従ってメールを送信してください。
 \end{enumerate}
 
