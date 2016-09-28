@@ -11,4 +11,7 @@
 
 # 講義のなかで紹介したプログラムのリポジトリ群
 
-- [9/26](https://github.com/is-prg1a/lx01)
+授業日程 | 公開情報
+----- | -----
+[9/26](https://github.com/is-prg1a/lx01) | 9/28に公開
+[9/29](https://github.com/is-prg1a/lx01) | 9/29に公開予定
