@@ -1,4 +1,4 @@
-# **lecture** repository
+# **プログラミング第一** のrepository
 
 このリポジトリには講義資料を置いてあります。
 
