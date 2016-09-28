@@ -11,10 +11,10 @@
 
 # 講義のなかで紹介したプログラムのリポジトリ群
 
-授業日程 | 公開情報 | 練習問題 | 小テスト |
------ | -----
-[lx01 -- 9/26](https://github.com/is-prg1a/lx01) | 9/28に公開 | | |
-[lx02 -- 9/30](https://github.com/is-prg1a/lx02) | 9/28に公開 | [練習問題](https://github.com/is-prg1a/lx02/assignment.md) | |
+授業日程 | 公開情報 | 練習問題 | 小テスト
+----- | ----- | ----- | -----
+[lx01 (9/26)](https://github.com/is-prg1a/lx01) | 9/28に公開 | |
+[lx02 (9/30)](https://github.com/is-prg1a/lx02) | 9/28に公開 | [練習問題](https://github.com/is-prg1a/lx02/assignment.md) |
 
 上の表のリンク先が開けない人は，この授業のための GitHub プロジェクト (is-prg1a) のメンバーに登録されていない可能性があります．以下の点を確認して下さい．
 
