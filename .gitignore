@@ -13,12 +13,15 @@ project/boot/
 project/plugins/project/
 project/project/target
 project/target
+project/plugins.sbt
+
+quiz/*
 
 slides/*.key
 slides/15
 
-src/lx*x
-test/lx*x
+src/lx*
+test/lx*
 
 # Scala-IDE specific
 .scala_dependencies
