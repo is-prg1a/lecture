@@ -15,7 +15,7 @@ project/project/target
 project/target
 project/plugins.sbt
 
-quiz/*
+quiz/*.pages
 
 slides/*.key
 slides/15
