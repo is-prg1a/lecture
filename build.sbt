@@ -1,53 +1,54 @@
-// 重要な注意：各設定の間に必ず空行を挿入して下さい。
-// これを守らないと sbt が起動しません。
+lazy val commonSettings = Seq(
+  version := "1.0",           // プロジェクトのバージョン番号
+  scalaVersion := "2.11.8",   // コンパイルに使う scalac のバージョン
+  scalacOptions := Seq(       // scalac に与えるオプション
+    "-optimize",
+    "-feature",
+    "-unchecked",
+    "-deprecation"
+  ),
+  javaOptions in run := Seq(  // 仮想機械に与えるオプション
+    "-Xmx2G",
+    "-verbose:gc"
+  )
+)
 
-name         := "lecture" // プロジェクトの名称
+lazy val scalafxSettings = {
+  val javaVersion = sys.props("java.specification.version")
 
-version      := "1.0"     // プロジェクトのバージョン番号
+  assert(javaVersion == "1.8" || javaVersion == "1.7",
+    f"ScalaFX supports Java versions 1.7 and higher.  Current version is ($javaVersion).  Please upgrade the version of your Java Development Kit")
 
-scalaVersion := "2.11.8"  // コンパイルに使う scalac のバージョン
+  val scalaFxDependency = javaVersion match {
+    case "1.8" =>
+      Seq(libraryDependencies += "org.scalafx" %% "scalafx" % "8.0.92-R10")
+    case "1.7" =>
+      Seq(libraryDependencies += "org.scalafx" %% "scalafx" % "2.2.76-R11",
+        unmanagedJars in Compile += Attributed.blank(file(scala.util.Properties.javaHome) / "/lib/jfxrt.jar"))
+  }
 
-scalacOptions ++=         // scalac に与えるオプション
-  Seq("-optimize", "-feature", "-unchecked", "-deprecation")
+  Defaults.coreDefaultSettings ++ scalaFxDependency
+}
 
-javaOptions in run ++=    // 仮想機械に与えるオプション
-  Seq( "-Xmx2G", "-verbose:gc")                          
+lazy val root = (project in file(".")).
+  settings(commonSettings: _*).
+  settings(scalafxSettings: _*).
+  settings(
+    name := "lecture",                                      // プロジェクトの名称
+    libraryDependencies ++= Seq(                            // プロジェクトで使う非標準 Scala ライブラリ
+      "org.scalactic" %% "scalactic" % "3.0.0",
+      "org.scalatest" %% "scalatest" % "3.0.0" % "test",
+      "org.scalacheck" %% "scalacheck" % "1.13.2" % "test", // データ生成テストのために使う ScalaCheck ライブラリ
+      "net.liftweb" %% "lift-json" % "3.0-M8",              // JSONデータを扱うためのライブラリ
+      "com.typesafe.akka" %% "akka-actor" % "2.4.10"        // 並行処理のためのライブラリ
+    ),
+    fork in (Test, run) := true,
+    connectInput := true,
+    scalaSource in Compile := baseDirectory.value / "src",  // ソースコードの在処を非標準の場所に設定
+    scalaSource in Test := baseDirectory.value / "test",
+    // コンパイル結果を非標準の場所に設定
+    // この設定はコンパイルの副産物がDropbox等のクラウドストレージに保存されることを
+    // 避けるためのものです。これによりクラウドストレージとの同期時間が短縮されます。
+    target := Path.userHome / "tmp" / "sbt" / "cs1g" / name.value
+  )
 
-// プロジェクトで使う非標準 Scala ライブラリ
-
-// The dependency on Scalactic, ScalaTest's sister library focused on
-// quality through types, is recommended but not required.
-//     (http://www.scalatest.org/install)
-
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.0"
-
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
-
-// データ生成テストのために使う ScalaCheck ライブラリ
-libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.2" % "test"
-
-// JSONデータを扱うためのライブラリ
-libraryDependencies +=
-  "net.liftweb" % "lift-json_2.11" % "3.0-M8"
-
-// 並行処理のためのライブラリ
-libraryDependencies +=
-  "com.typesafe.akka" % "akka-actor_2.11" % "2.4.10"
-
-// テスト実行や通常の実行にsbtとは別のプロセスを用いる
-
-fork in (Test, run) := true
-
-connectInput := true
-
-// ソースコードの在処を非標準の場所に設定
-
-scalaSource in Compile := baseDirectory.value / "src"
-
-scalaSource in Test := baseDirectory.value / "test"
-
-// コンパイル結果を非標準の場所に設定
-// この設定はコンパイルの副産物がDropbox等のクラウドストレージに保存されることを
-// 避けるためのものです。これによりクラウドストレージとの同期時間が短縮されます。
-
-target := Path.userHome / "tmp" / "sbt" / "cs1g" / name.value
