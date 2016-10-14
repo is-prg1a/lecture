@@ -16,6 +16,7 @@ project/target
 project/plugins.sbt
 
 quiz/*.pages
+quiz/201*-quiz*.pdf
 
 slides/*.key
 slides/15
