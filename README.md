@@ -21,6 +21,8 @@
 [lx02 (9/30)](https://github.com/is-prg1a/lx02) | 9/28に公開 | [練習問題](https://github.com/is-prg1a/lx02/blob/master/assignment.md) | なし
 [lx03 (10/3)](https://github.com/is-prg1a/lx03) | 10/1に公開 | | あり
 [lx04 (10/14)](https://github.com/is-prg1a/lx04) | | | あるかも
+[lx05 (10/18)](https://github.com/is-prg1a/lx05) | | | あるかも
+[lx06 (10/21)](https://github.com/is-prg1a/lx06) | | 宿題（スライドを参照） | 
 
 上の表のリンク先が開けない人は，この授業のための GitHub プロジェクト (is-prg1a) のメンバーに登録されていない可能性があります．以下の点を確認して下さい．
 
